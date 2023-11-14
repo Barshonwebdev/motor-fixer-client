@@ -3,15 +3,32 @@ import logo from '../../assets/logo.svg';
 import { Link } from 'react-router-dom';
 import { BiShoppingBag } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 const Header = () => {
-  const navItems= <>
-    <li><Link>Home</Link></li>
-    <li><Link>About</Link></li>
-    <li><Link>Services</Link></li>
-    <li><Link>Blog</Link></li>
-    <li><Link>Contact</Link></li>
-  </>
+  const navItems = (
+    <>
+      <li>
+        <Link>
+          <AnchorLink href="#home">Home</AnchorLink>
+        </Link>
+      </li>
+      <li>
+        <Link>
+          <AnchorLink href="#about">About</AnchorLink>
+        </Link>
+      </li>
+      <li>
+        <Link>Services</Link>
+      </li>
+      <li>
+        <Link>Blog</Link>
+      </li>
+      <li>
+        <Link>Contact</Link>
+      </li>
+    </>
+  );
     return (
       <div className="navbar h-28 mb-6 ">
         <div className="navbar-start">

@@ -3,7 +3,7 @@ import person from '../../assets/images/about_us/person.jpg'
 import parts from '../../assets/images/about_us/parts.jpg'
 const About = () => {
     return (
-      <div className="hero min-h-screen ">
+      <div className="hero min-h-screen " id='about'>
         <div className="hero-content flex-col lg:flex-row">
           <div className='lg:w-1/2 relative'>
             <img src={person} className="w-3/4 rounded-lg shadow-2xl" />
