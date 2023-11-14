@@ -1,6 +1,9 @@
 import React from 'react';
 import logo from '../../assets/logo.svg';
 import { Link } from 'react-router-dom';
+import { BiShoppingBag } from "react-icons/bi";
+import { FiSearch } from "react-icons/fi";
+
 const Header = () => {
   const navItems= <>
     <li><Link>Home</Link></li>
@@ -39,12 +42,14 @@ const Header = () => {
           <img src={logo} alt="" />
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 text-lg">
             {navItems}
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn btn-outline btn-error">Button</a>
+        <div className="navbar-end space-x-4">
+          <BiShoppingBag className='text-xl'></BiShoppingBag>
+          <FiSearch className='text-xl'></FiSearch>
+          <a className="btn btn-outline btn-error">Appointment</a>
         </div>
       </div>
     );
