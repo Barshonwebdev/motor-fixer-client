@@ -12,8 +12,8 @@ const Banner = () => {
         <div id="slide1" className="carousel-item relative w-full  ">
           <img src={img1} className="w-full" />
           <div className="absolute flex items-center p-7 transform text-white  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] h-full w-full  ">
-            <div className="space-y-5 w-1/2 ">
-              <h2 className="text-5xl font-bold">
+            <div className="md:space-y-5 space-y-3 w-1/2 ">
+              <h2 className="text-4xl font-bold">
                 Affordable Price For Car Servicing
               </h2>
               <p>
@@ -36,8 +36,8 @@ const Banner = () => {
         <div id="slide2" className="carousel-item relative w-full  ">
           <img src={img2} className="w-full" />
           <div className="absolute flex items-center p-7 transform text-white  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] h-full w-full  ">
-            <div className="space-y-5 w-1/2 ">
-              <h2 className="text-5xl font-bold">
+            <div className="md:space-y-5 space-y-3 w-1/2 ">
+              <h2 className="text-4xl font-bold">
                 Affordable Price For Car Servicing
               </h2>
               <p>
@@ -60,8 +60,8 @@ const Banner = () => {
         <div id="slide3" className="carousel-item relative w-full  ">
           <img src={img3} className="w-full" />
           <div className="absolute flex items-center p-7 transform text-white  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] h-full w-full  ">
-            <div className="space-y-5 w-1/2 ">
-              <h2 className="text-5xl font-bold">
+            <div className="md:space-y-5 space-y-3 w-1/2 ">
+              <h2 className="text-4xl font-bold">
                 Affordable Price For Car Servicing
               </h2>
               <p>
@@ -84,8 +84,8 @@ const Banner = () => {
         <div id="slide4" className="carousel-item relative w-full  ">
           <img src={img4} className="w-full" />
           <div className="absolute flex items-center p-7 transform text-white  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] h-full w-full  ">
-            <div className="space-y-5 w-1/2 ">
-              <h2 className="text-5xl font-bold">
+            <div className="md:space-y-5 space-y-3 w-1/2 ">
+              <h2 className="text-4xl font-bold">
                 Affordable Price For Car Servicing
               </h2>
               <p>
@@ -108,8 +108,8 @@ const Banner = () => {
         <div id="slide5" className="carousel-item relative w-full  ">
           <img src={img5} className="w-full" />
           <div className="absolute flex items-center p-7 transform text-white  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] h-full w-full  ">
-            <div className="space-y-5 w-1/2 ">
-              <h2 className="text-5xl font-bold">
+            <div className="md:space-y-5 space-y-3 w-1/2 ">
+              <h2 className="text-4xl font-bold">
                 Affordable Price For Car Servicing
               </h2>
               <p>
@@ -132,8 +132,8 @@ const Banner = () => {
         <div id="slide6" className="carousel-item relative w-full  ">
           <img src={img6} className="w-full" />
           <div className="absolute flex items-center p-7 transform text-white  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] h-full w-full  ">
-            <div className="space-y-5 w-1/2 ">
-              <h2 className="text-5xl font-bold">
+            <div className="md:space-y-5 space-y-3 w-1/2 ">
+              <h2 className="text-4xl font-bold">
                 Affordable Price For Car Servicing
               </h2>
               <p>
