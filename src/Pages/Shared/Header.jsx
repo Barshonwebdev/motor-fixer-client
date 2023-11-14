@@ -42,13 +42,11 @@ const Header = () => {
           <img src={logo} alt="" />
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-lg">
-            {navItems}
-          </ul>
+          <ul className="menu menu-horizontal px-1 text-lg">{navItems}</ul>
         </div>
         <div className="navbar-end space-x-4">
-          <BiShoppingBag className='text-xl'></BiShoppingBag>
-          <FiSearch className='text-xl'></FiSearch>
+          <BiShoppingBag className="text-xl hover:scale-150"></BiShoppingBag>
+          <FiSearch className="text-xl hover:scale-150"></FiSearch>
           <a className="btn btn-outline btn-error">Appointment</a>
         </div>
       </div>
