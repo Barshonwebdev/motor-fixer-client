@@ -9,9 +9,7 @@ const Header = () => {
   const navItems = (
     <>
       <li>
-        <Link>
-          <AnchorLink href="#home">Home</AnchorLink>
-        </Link>
+        <Link to="/">Home</Link>
       </li>
       <li>
         <Link>
@@ -19,7 +17,9 @@ const Header = () => {
         </Link>
       </li>
       <li>
-        <Link>Services</Link>
+        <Link>
+          <AnchorLink href="#service">Services</AnchorLink>
+        </Link>
       </li>
       <li>
         <Link>Blog</Link>

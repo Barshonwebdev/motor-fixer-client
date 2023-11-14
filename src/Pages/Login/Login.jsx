@@ -1,19 +1,19 @@
 import React from 'react';
-
+import loginImg from '../../assets/images/login/login.svg'
+import { Link } from 'react-router-dom';
 const Login = () => {
+    const handleLogin=(event)=>{
+        event.preventDefault();
+    }
     return (
-      <div className="hero min-h-screen ">
-        <div className="hero-content flex-col lg:flex-row">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+      <div className="hero  ">
+        <div className="hero-content flex-col lg:flex-row ">
+          <div className="text-center lg:text-left ">
+            <img src={loginImg} alt="" />
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+          <div className="card  w-full max-w-sm shadow-2xl bg-base-100">
+            <h3 className='text-white mt-5 text-center text-3xl'>Login</h3>
+            <form className="card-body" onSubmit={handleLogin} >
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -23,6 +23,7 @@ const Login = () => {
                   placeholder="email"
                   className="input input-bordered"
                   required
+                  name='email'
                 />
               </div>
               <div className="form-control">
@@ -34,6 +35,7 @@ const Login = () => {
                   placeholder="password"
                   className="input input-bordered"
                   required
+                  name='password'
                 />
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
@@ -42,9 +44,10 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <input type="submit" value="Login" className='btn btn-accent w-2/3 mx-auto' />
               </div>
             </form>
+            <p className='mb-5 text-center text-white'>New here? <Link className='text-orange-600' to='/register'>Signup!</Link></p>
           </div>
         </div>
       </div>
