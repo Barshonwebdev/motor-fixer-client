@@ -17,8 +17,25 @@ const Checkout = () => {
             email,
             date,
             price:price,
-            service_id
+            service_id,
+            title,
+            img
         }
+
+        fetch("http://localhost:5000/booking", {
+          method:"POST",
+          headers:{
+            'content-type':'application/json'
+          },
+          body: JSON.stringify(order)
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if(data.insertedId){
+              alert('service booked!')
+            }
+          });
         console.log(order);
     }
     return (
@@ -34,7 +51,7 @@ const Checkout = () => {
                 <input
                   type="text"
                   placeholder="Your name"
-                  defaultValue={user.displayName}
+                  defaultValue={user?.displayName}
                   className="input input-bordered"
                   name='name'
                   required
@@ -59,7 +76,7 @@ const Checkout = () => {
                 <input
                   type="email"
                   placeholder="email"
-                  defaultValue={user.email}
+                  defaultValue={user?.email}
                   className="input input-bordered"
                   name='email'
                   required

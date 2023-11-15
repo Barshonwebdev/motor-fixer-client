@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/logo.svg';
 import { Link } from 'react-router-dom';
 import { BiShoppingBag } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
+  const {user,logout}=useContext(AuthContext);
+  const handleLogout=()=>{
+    logout()
+  }
   const navItems = (
     <>
       <li>
@@ -21,12 +26,15 @@ const Header = () => {
           <AnchorLink href="#service">Services</AnchorLink>
         </Link>
       </li>
-      <li>
-        <Link>Blog</Link>
-      </li>
-      <li>
-        <Link>Contact</Link>
-      </li>
+      {user?.email ? (
+        <button onClick={handleLogout} className="btn btn-primary">
+          <Link>Logout</Link>
+        </button>
+      ) : (
+        <button className="btn btn-secondary">
+          <Link to='/login'>Login</Link>
+        </button>
+      )}
     </>
   );
     return (
