@@ -10,7 +10,7 @@ const Main = () => {
           <Header></Header>
           <Outlet></Outlet>
         </div>
-        <div className='mt-10'>
+        <div className='flex flex-col '>
           <Footer></Footer>
         </div>
       </div>
