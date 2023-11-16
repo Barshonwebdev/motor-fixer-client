@@ -1,19 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import BookingRow from './BookingRow';
+import { data } from 'autoprefixer';
 
 const Bookings = () => {
 
     const {user}=useContext(AuthContext);
     const [bookings,setBookings]=useState([]);
+    const url = `http://localhost:5000/booking?email=${user?.email}`;
 
     useEffect(()=>{
-        const url = `http://localhost:5000/booking?email=${user?.email}`;
-
+        
         fetch(url)
         .then(res=>res.json())
         .then(data=>setBookings(data))
-    },[])
+    },[url])
 
     const handleDelete=(id)=>{
         const proceed=confirm('Are you sure you want to delete this?');
@@ -31,6 +32,28 @@ const Bookings = () => {
                 }
               });
         }
+    }
+
+    const handleConfirm=(id)=>{
+        fetch(`http://localhost:5000/booking/${id}`,{
+            method:"PATCH",
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify({status:'confirm'})
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.modifiedCount>0){
+                //update state
+                const remaining=bookings.filter(booking=>booking._id!==id);
+                const updated=bookings.find(booking=>booking._id===id);
+                updated.status='confirm';
+                const newBooking=[updated,...remaining];
+                setBookings(newBooking);
+            }
+        })
     }
     return (
       <div>
@@ -58,7 +81,7 @@ const Bookings = () => {
             </thead>
             <tbody>
                 {
-                    bookings.map(booking=><BookingRow key={booking._id} handleDelete={handleDelete} booking={booking}></BookingRow>)
+                    bookings.map(booking=><BookingRow key={booking._id} handleConfirm={handleConfirm} handleDelete={handleDelete} booking={booking}></BookingRow>)
                 }
             </tbody>
             
