@@ -14,6 +14,19 @@ const Login = () => {
         signIn(email, password).then((result) => {
           const user = result.user;
           console.log(user);
+          const loggegUserEmail={email:user.email};
+          fetch("https://motor-fixer-server-production.up.railway.app/jwt", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(loggegUserEmail),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              localStorage.setItem("car-access-token", data.token);
+            });
         });
     }
     return (

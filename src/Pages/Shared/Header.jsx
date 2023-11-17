@@ -10,6 +10,9 @@ const Header = () => {
   const {user,logout}=useContext(AuthContext);
   const handleLogout=()=>{
     logout()
+    .then(()=>{
+      localStorage.removeItem('car-access-token')
+    })
   }
   const navItems = (
     <>

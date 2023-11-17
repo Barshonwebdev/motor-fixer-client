@@ -7,7 +7,7 @@ const Bookings = () => {
 
     const {user}=useContext(AuthContext);
     const [bookings,setBookings]=useState([]);
-    const url = `http://localhost:5000/booking?email=${user?.email}`;
+    const url = `https://motor-fixer-server-production.up.railway.app/booking?email=${user?.email}`;
 
     useEffect(()=>{
         
@@ -19,41 +19,51 @@ const Bookings = () => {
     const handleDelete=(id)=>{
         const proceed=confirm('Are you sure you want to delete this?');
         if(proceed){
-            fetch(`http://localhost:5000/booking/${id}`, {
-              method: "DELETE",
-            })
+            fetch(
+              `https://motor-fixer-server-production.up.railway.app/booking/${id}`,
+              {
+                method: "DELETE",
+              }
+            )
               .then((res) => res.json())
               .then((data) => {
                 console.log(data);
-                if(data.deletedCount>0){
-                    alert("Deleted Successfully");
-                    const remaining=bookings.filter(booking=>booking._id!==id);
-                    setBookings(remaining);
+                if (data.deletedCount > 0) {
+                  alert("Deleted Successfully");
+                  const remaining = bookings.filter(
+                    (booking) => booking._id !== id
+                  );
+                  setBookings(remaining);
                 }
               });
         }
     }
 
     const handleConfirm=(id)=>{
-        fetch(`http://localhost:5000/booking/${id}`,{
-            method:"PATCH",
-            headers:{
-                "content-type":"application/json"
+        fetch(
+          `https://motor-fixer-server-production.up.railway.app/booking/${id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
             },
-            body:JSON.stringify({status:'confirm'})
-        })
-        .then(res=>res.json())
-        .then(data=>{
+            body: JSON.stringify({ status: "confirm" }),
+          }
+        )
+          .then((res) => res.json())
+          .then((data) => {
             console.log(data);
-            if(data.modifiedCount>0){
-                //update state
-                const remaining=bookings.filter(booking=>booking._id!==id);
-                const updated=bookings.find(booking=>booking._id===id);
-                updated.status='confirm';
-                const newBooking=[updated,...remaining];
-                setBookings(newBooking);
+            if (data.modifiedCount > 0) {
+              //update state
+              const remaining = bookings.filter(
+                (booking) => booking._id !== id
+              );
+              const updated = bookings.find((booking) => booking._id === id);
+              updated.status = "confirm";
+              const newBooking = [updated, ...remaining];
+              setBookings(newBooking);
             }
-        })
+          });
     }
     return (
       <div>

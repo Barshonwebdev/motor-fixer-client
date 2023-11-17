@@ -29,7 +29,9 @@ const router = createBrowserRouter([
         path: "/checkout/:id",
         element: <Checkout></Checkout>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://motor-fixer-server-production.up.railway.app/services/${params.id}`
+          ),
       },
       {
         path: "/bookings",

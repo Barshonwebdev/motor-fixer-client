@@ -22,18 +22,18 @@ const Checkout = () => {
             img
         }
 
-        fetch("http://localhost:5000/booking", {
-          method:"POST",
-          headers:{
-            'content-type':'application/json'
+        fetch("https://motor-fixer-server-production.up.railway.app/booking", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
           },
-          body: JSON.stringify(order)
+          body: JSON.stringify(order),
         })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            if(data.insertedId){
-              alert('service booked!')
+            if (data.insertedId) {
+              alert("service booked!");
             }
           });
         console.log(order);
